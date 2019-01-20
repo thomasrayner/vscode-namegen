@@ -14,8 +14,19 @@ export function activate(context: vscode.ExtensionContext) {
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('extension.insertName', () => {
-		const uri = "https://uzby.com/api.php?min=6&max=10";
-		vscode.window.showInformationMessage('Hello World!');
+		const editor = vscode.window.activeTextEditor;
+		if (editor) {
+			const randomWord = require('random-word');
+			const words = [randomWord(), randomWord()];
+			const newName = words[0] + words[1].charAt(0).toUpperCase() + words[1].substr(1);
+
+			editor.edit(edit => {
+				edit.insert(editor.selection.start, newName);
+			});
+
+			console.log("Inserted " + newName);
+		}
+		console.log("No active editor, didn't stick anything in");		
 	});
 
 	context.subscriptions.push(disposable);
