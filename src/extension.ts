@@ -26,7 +26,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 			console.log("Inserted " + newName);
 		}
-		console.log("No active editor, didn't stick anything in");		
+		else {
+			console.log("No active editor, didn't stick anything in");
+		}
 	});
 
 	context.subscriptions.push(disposable);
