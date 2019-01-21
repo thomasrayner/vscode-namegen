@@ -2,6 +2,7 @@
 	"name": "vscode-namegen",
 	"displayName": "Random Name Generator",
 	"description": "Ever have trouble deciding what to name a variable? Use this. It generates random names for artifacts in VS Code.",
+	"publisher": "thmsrynr",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.30.0"
