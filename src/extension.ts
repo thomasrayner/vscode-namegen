@@ -2,37 +2,60 @@ import * as vscode from 'vscode';
 
 function getWord(WordFormat: string, Editor: vscode.TextEditor) {
 	const randomWord = require('random-word');
-	const words = [randomWord(), randomWord()];
 	let newName: string = "";
-	console.log("WordFormat: " + WordFormat);
-	switch (WordFormat) {
-		case 'camelCase': {
-			newName = words[0] + words[1].charAt(0).toUpperCase() + words[1].substr(1);
-			break;
-		}
-		case 'PascalCase': {
-			newName = words[0].charAt(0).toUpperCase() + words[0].substr(1) + 
-				words[1].charAt(0).toUpperCase() + words[1].substr(1);
-			break;
-		}
-		case 'snake_case': {
-			newName = words[0] + "_" + words[1];
-			break;
-		}
-		case 'Kebab-Case': {
-			newName = words[0].charAt(0).toUpperCase() + words[0].substr(1) + 
-				'-' + words[1].charAt(0).toUpperCase() + words[1].substr(1);
-			break;
-		}
-		case 'crAZyModE': {
-			newName = (words[0] + words[1]).split('').map(function (c: string){
-				const chance = Math.round(Math.random());
-				return c = chance ? c.toUpperCase() : c.toLowerCase();
-			}).join('');
-			break;
-		}
-		default: {
-			newName = "random";
+	const wordCount = vscode.workspace.getConfiguration('randomNameGen').WordCount;
+
+	console.log("WordFormat: " + WordFormat + ". WordCount: " + wordCount);
+
+	for (let index = 0; index < wordCount; index++) {
+		const word = randomWord();
+
+		switch (WordFormat) {
+			case 'camelCase': {
+				if (index === 0) {
+					newName += word;
+				}
+				else {
+					newName += word.charAt(0).toUpperCase() + word.substr(1);
+				}
+				break;
+			}
+
+			case 'PascalCase': {
+				newName += word.charAt(0).toUpperCase() + word.substr(1);
+				break;
+			}
+
+			case 'snake_case': {
+				if (index === 0) {
+					newName += word;
+				}
+				else {
+					newName += "_" + word;
+				}
+				break;
+			}
+
+			case 'Kebab-Case': {
+				if (index === 0) {
+					newName +=  word.charAt(0).toUpperCase() + word.substr(1);
+				}
+				else {
+					newName += "-" + word.charAt(0).toUpperCase() + word.substr(1);
+				}
+				break;
+			}
+
+			case 'crAZyModE': {
+				newName += (word).split('').map(function (c: string){
+					const chance = Math.round(Math.random());
+					return c = chance ? c.toUpperCase() : c.toLowerCase();
+				}).join('');
+				break;
+			}
+			default: {
+				newName = "random";
+			}
 		}
 	}
 

@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-namegen" extension will be documented in this file.
 
-## [Unreleased]
+## 0.0.2
 
-- Initial release
+Added configurable setting `randomNameGen.WordCount` so a user may decide how long a random name is.
+
+## 0.0.1
+
+Initial release
+
+**Enjoy!**
