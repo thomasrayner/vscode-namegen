@@ -1,37 +1,105 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+function getWord(WordFormat: string, Editor: vscode.TextEditor) {
+	const randomWord = require('random-word');
+	const words = [randomWord(), randomWord()];
+	let newName: string = "";
+	console.log("WordFormat: " + WordFormat);
+	switch (WordFormat) {
+		case 'camelCase': {
+			newName = words[0] + words[1].charAt(0).toUpperCase() + words[1].substr(1);
+			break;
+		}
+		case 'PascalCase': {
+			newName = words[0].charAt(0).toUpperCase() + words[0].substr(1) + 
+				words[1].charAt(0).toUpperCase() + words[1].substr(1);
+			break;
+		}
+		case 'snake_case': {
+			newName = words[0] + "_" + words[1];
+			break;
+		}
+		case 'Kebab-Case': {
+			newName = words[0].charAt(0).toUpperCase() + words[0].substr(1) + 
+				'-' + words[1].charAt(0).toUpperCase() + words[1].substr(1);
+			break;
+		}
+		case 'crAZyModE': {
+			newName = (words[0] + words[1]).split('').map(function (c: string){
+				const chance = Math.round(Math.random());
+				return c = chance ? c.toUpperCase() : c.toLowerCase();
+			}).join('');
+			break;
+		}
+		default: {
+			newName = "random";
+		}
+	}
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-		console.log('Congratulations, your extension "vscode-namegen" is now active!');
+	Editor.edit(edit => {
+		edit.insert(Editor.selection.start, newName);
+	});
+	console.log("Inserted " + newName);
+}
+
+export function activate(context: vscode.ExtensionContext) {
+	console.log('Extension "vscode-namegen" is now active.');
 
 	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.insertName', () => {
+	let disposableCamel = vscode.commands.registerCommand('extension.insertCamel', () => {
 		const editor = vscode.window.activeTextEditor;
 		if (editor) {
-			const randomWord = require('random-word');
-			const words = [randomWord(), randomWord()];
-			const newName = words[0] + words[1].charAt(0).toUpperCase() + words[1].substr(1);
-
-			editor.edit(edit => {
-				edit.insert(editor.selection.start, newName);
-			});
-
-			console.log("Inserted " + newName);
+			getWord('camelCase', editor);
 		}
 		else {
 			console.log("No active editor, didn't stick anything in");
 		}
 	});
+	context.subscriptions.push(disposableCamel);
 
-	context.subscriptions.push(disposable);
+	let disposablePascal = vscode.commands.registerCommand('extension.insertPascal', () => {
+		const editor = vscode.window.activeTextEditor;
+		if (editor) {
+			getWord('PascalCase', editor);
+		}
+		else {
+			console.log("No active editor, didn't stick anything in");
+		}
+	});
+	context.subscriptions.push(disposablePascal);
+
+	let disposableSnake = vscode.commands.registerCommand('extension.insertSnake', () => {
+		const editor = vscode.window.activeTextEditor;
+		if (editor) {
+			getWord('snake_case', editor);
+		}
+		else {
+			console.log("No active editor, didn't stick anything in");
+		}
+	});
+	context.subscriptions.push(disposableSnake);
+
+	let disposableKebab = vscode.commands.registerCommand('extension.insertKebab', () => {
+		const editor = vscode.window.activeTextEditor;
+		if (editor) {
+			getWord('Kebab-Case', editor);
+		}
+		else {
+			console.log("No active editor, didn't stick anything in");
+		}
+	});
+	context.subscriptions.push(disposableKebab);
+
+	let disposableCrazy = vscode.commands.registerCommand('extension.insertCrazy', () => {
+		const editor = vscode.window.activeTextEditor;
+		if (editor) {
+			getWord('crAZyModE', editor);
+		}
+		else {
+			console.log("No active editor, didn't stick anything in");
+		}
+	});
+	context.subscriptions.push(disposableCrazy);
 }
 
 // this method is called when your extension is deactivated
