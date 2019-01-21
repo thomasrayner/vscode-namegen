@@ -10,14 +10,39 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.insertName"
+		"onCommand:extension.insertCamel",
+		"onCommand:extension.insertSnake",
+		"onCommand:extension.insertKebab",
+		"onCommand:extension.insertCrazy",
+		"onCommand:extension.insertPascal"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.insertName",
-				"title": "Insert New Identifying Name"
+				"command": "extension.insertCamel",
+				"title": "Insert New camelCase Identifying Name",
+				"category": "Random Name"
+			},
+			{
+				"command": "extension.insertPascal",
+				"title": "Insert New PascalCase Identifying Name",
+				"category": "Random Name"
+			},
+			{
+				"command": "extension.insertSnake",
+				"title": "Insert New snake_case Identifying Name",
+				"category": "Random Name"
+			},
+			{
+				"command": "extension.insertKebab",
+				"title": "Insert New Kebab-Case Identifying Name",
+				"category": "Random Name"
+			},
+			{
+				"command": "extension.insertCrazy",
+				"title": "Insert New crAZyModE Identifying Name",
+				"category": "Random Name"
 			}
 		]
 	},
