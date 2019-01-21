@@ -4,7 +4,7 @@ This is a simple VS Code extension that inserts random words with specific casin
 
 ## How it works
 
-![Random Name Generator in action](randomName.gif, "Random Name Generator in action")
+![Random Name Generator in action](randomName.gif "Random Name Generator in action")
 
 ### 0.0.1
 
