@@ -4,6 +4,12 @@
 	"description": "Ever have trouble deciding what to name a variable? Use this. It generates random names for artifacts in VS Code.",
 	"publisher": "thmsrynr",
 	"version": "0.0.1",
+	"license": "SEE LICENSE IN LICENSE.txt",
+	"homepage": "https://github.com/thomasrayner/vscode-namegen",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/thomasrayner/vscode-namegen.git"
+	},
 	"engines": {
 		"vscode": "^1.30.0"
 	},
