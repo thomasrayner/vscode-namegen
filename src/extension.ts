@@ -14,7 +14,7 @@ function getWord(WordFormat: string, Editor: vscode.TextEditor) {
 
 	for (let index = 0; index < wordCount; index++) {
 		const wordRetrieve = uniqueRandomArray(fs.readFileSync(wordListPath, 'utf8').split('\n'));
-		const word = wordRetrieve();
+		const word = wordRetrieve().replace('\r', "");
 
 		switch (WordFormat) {
 			case 'camelCase': {
