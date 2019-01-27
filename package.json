@@ -3,7 +3,7 @@
 	"displayName": "Random Name Generator",
 	"description": "Ever have trouble deciding what to name a variable? Use this. It generates random names for artifacts in VS Code.",
 	"publisher": "thmsrynr",
-	"version": "0.0.3",
+	"version": "0.1.0",
 	"icon": "icon.png",
 	"license": "SEE LICENSE IN LICENSE.txt",
 	"homepage": "https://github.com/thomasrayner/vscode-namegen",
@@ -61,6 +61,16 @@
 					"type": "number",
 					"default": 2,
 					"description": "The number of words to string together."
+				},
+				"randomNameGen.DefaultTheme": {
+					"type": "string",
+					"default": "All",
+					"description": "The wordlist to pull from.",
+					"enum": [
+						"All",
+						"StarWars",
+						"Test"
+					]
 				}
 			}
 		}
@@ -80,6 +90,6 @@
 		"@types/mocha": "^2.2.42"
 	},
 	"dependencies": {
-		"random-word": "^2.0.0"
+		"unique-random-array": "^1.0.1"
 	}
 }
