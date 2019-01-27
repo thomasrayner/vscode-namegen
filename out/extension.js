@@ -12,7 +12,7 @@ function getWord(WordFormat, Editor) {
     console.log("WordFormat: " + WordFormat + ". WordCount: " + wordCount + ". Theme: " + theme);
     for (let index = 0; index < wordCount; index++) {
         const wordRetrieve = uniqueRandomArray(fs.readFileSync(wordListPath, 'utf8').split('\n'));
-        const word = wordRetrieve().replace('\r', "");
+        const word = wordRetrieve().replace(/[^a-zA-Z]/g, "").toLowerCase();
         switch (WordFormat) {
             case 'camelCase': {
                 if (index === 0) {
