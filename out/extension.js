@@ -1,13 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode = require("vscode");
+const fs = require("fs");
 function getWord(WordFormat, Editor) {
-    const randomWord = require('random-word');
+    const uniqueRandomArray = require('unique-random-array');
+    const path = require('path');
     let newName = "";
     const wordCount = vscode.workspace.getConfiguration('randomNameGen').WordCount;
-    console.log("WordFormat: " + WordFormat + ". WordCount: " + wordCount);
+    const theme = vscode.workspace.getConfiguration('randomNameGen').DefaultTheme;
+    const wordListPath = path.join(__dirname, `wordlists/${theme}.txt`);
+    console.log("WordFormat: " + WordFormat + ". WordCount: " + wordCount + ". Theme: " + theme);
     for (let index = 0; index < wordCount; index++) {
-        const word = randomWord();
+        const wordRetrieve = uniqueRandomArray(fs.readFileSync(wordListPath, 'utf8').split('\n'));
+        const word = wordRetrieve();
         switch (WordFormat) {
             case 'camelCase': {
                 if (index === 0) {
