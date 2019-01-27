@@ -1,14 +1,20 @@
 import * as vscode from 'vscode';
+import fs = require('fs');
+
 
 function getWord(WordFormat: string, Editor: vscode.TextEditor) {
-	const randomWord = require('random-word');
+	const uniqueRandomArray = require('unique-random-array');
+	const path = require('path');
 	let newName: string = "";
 	const wordCount = vscode.workspace.getConfiguration('randomNameGen').WordCount;
+	const theme = vscode.workspace.getConfiguration('randomNameGen').DefaultTheme;
+	const wordListPath = path.join(__dirname, `wordlists/${theme}.txt`);
 
-	console.log("WordFormat: " + WordFormat + ". WordCount: " + wordCount);
+	console.log("WordFormat: " + WordFormat + ". WordCount: " + wordCount + ". Theme: " + theme);
 
 	for (let index = 0; index < wordCount; index++) {
-		const word = randomWord();
+		const wordRetrieve = uniqueRandomArray(fs.readFileSync(wordListPath, 'utf8').split('\n'));
+		const word = wordRetrieve().replace(/[^a-zA-Z]/g, "").toLowerCase();
 
 		switch (WordFormat) {
 			case 'camelCase': {
