@@ -2,6 +2,10 @@
 
 All notable changes to the "vscode-namegen" extension will be documented in this file.
 
+## 0.1.0
+
+New feature: Get words from themed wordlists. Check the randomNameGen.DefaultTheme setting.
+
 ## 0.0.3
 
 Bug fixes (icon)
