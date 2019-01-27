@@ -65,7 +65,12 @@
 				"randomNameGen.DefaultTheme": {
 					"type": "string",
 					"default": "All",
-					"description": "The wordlist to pull from. May be: All."
+					"description": "The wordlist to pull from.",
+					"enum": [
+						"All",
+						"StarWars",
+						"Test"
+					]
 				}
 			}
 		}
