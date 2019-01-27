@@ -61,6 +61,11 @@
 					"type": "number",
 					"default": 2,
 					"description": "The number of words to string together."
+				},
+				"randomNameGen.DefaultTheme": {
+					"type": "string",
+					"default": "All",
+					"description": "The wordlist to pull from. May be: All."
 				}
 			}
 		}
@@ -80,6 +85,6 @@
 		"@types/mocha": "^2.2.42"
 	},
 	"dependencies": {
-		"random-word": "^2.0.0"
+		"unique-random-array": "^1.0.1"
 	}
 }
