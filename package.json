@@ -69,6 +69,7 @@
 					"enum": [
 						"All",
 						"StarWars",
+						"MiddleEarth",
 						"Test"
 					]
 				}
