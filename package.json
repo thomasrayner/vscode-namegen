@@ -3,7 +3,7 @@
 	"displayName": "Random Name Generator",
 	"description": "Ever have trouble deciding what to name a variable? Use this. It generates random names for artifacts in VS Code.",
 	"publisher": "thmsrynr",
-	"version": "0.1.1",
+	"version": "0.2.0",
 	"icon": "icon.png",
 	"license": "SEE LICENSE IN LICENSE.txt",
 	"homepage": "https://github.com/thomasrayner/vscode-namegen",
@@ -23,7 +23,8 @@
 		"onCommand:extension.insertKebab",
 		"onCommand:extension.insertCrazy",
 		"onCommand:extension.insertPascal",
-		"onCommand:extension.insertTrain"
+		"onCommand:extension.insertTrain",
+		"onCommand:extension.insertDefault"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -57,6 +58,11 @@
 				"command": "extension.insertCrazy",
 				"title": "Insert New crAZyModE Identifying Name",
 				"category": "Random Name"
+			},
+			{
+				"command": "extension.insertDefault",
+				"title": "Insert New Identifying Name (default mode)",
+				"category": "Random Name"
 			}
 		],
 		"configuration": {
@@ -78,9 +84,27 @@
 						"MiddleEarth",
 						"Test"
 					]
+				},
+				"randomNameGen.DefaultCasing": {
+					"type": "string",
+					"default": "camelCase",
+					"markdownDescription": "The casing that gets called when you use the keybinding (default: `Shift + Alt + j`).",
+					"enum": [
+						"camelCase",
+						"PascalCase",
+						"snake_case",
+						"kebab-case",
+						"Train-Case",
+						"crAZyModE"
+					]
 				}
 			}
-		}
+		},
+		"keybindings": [{
+			"command": "extension.insertDefault",
+			"key": "shift+alt+j",
+			"when": "editorTextFocus"
+		}]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",

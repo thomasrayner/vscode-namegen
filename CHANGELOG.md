@@ -2,6 +2,10 @@
 
 All notable changes to the "vscode-namegen" extension will be documented in this file.
 
+## 0.2.0
+
+Added `randomNameGen.DefaultCasing` setting that works with the new `shift+alt+j` keybinding, which inserts a random name with your default casing preference.
+
 ## 0.1.1
 
 Corrected `kebab-case` to the right casing options, and added `Train-Case`. Added `MiddleEarth` wordlist.

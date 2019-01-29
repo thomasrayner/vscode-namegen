@@ -150,6 +150,18 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	});
 	context.subscriptions.push(disposableCrazy);
+
+	let disposableDefault = vscode.commands.registerCommand('extension.insertDefault', () => {
+		const editor = vscode.window.activeTextEditor;
+		if (editor) {
+			const casing = vscode.workspace.getConfiguration('randomNameGen').DefaultCasing;
+			getWord(casing, editor);
+		}
+		else {
+			console.log("No active editor, didn't stick anything in");
+		}
+	});
+	context.subscriptions.push(disposableDefault);
 }
 
 // this method is called when your extension is deactivated
