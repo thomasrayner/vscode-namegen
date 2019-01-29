@@ -42,7 +42,17 @@ function getWord(WordFormat: string, Editor: vscode.TextEditor) {
 				break;
 			}
 
-			case 'Kebab-Case': {
+			case 'kebab-case': {
+				if (index === 0) {
+					newName += word;
+				}
+				else {
+					newName += "-" + word;
+				}
+				break;
+			}
+
+			case 'Train-Case': {
 				if (index === 0) {
 					newName +=  word.charAt(0).toUpperCase() + word.substr(1);
 				}
@@ -111,13 +121,24 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposableKebab = vscode.commands.registerCommand('extension.insertKebab', () => {
 		const editor = vscode.window.activeTextEditor;
 		if (editor) {
-			getWord('Kebab-Case', editor);
+			getWord('kebab-case', editor);
 		}
 		else {
 			console.log("No active editor, didn't stick anything in");
 		}
 	});
 	context.subscriptions.push(disposableKebab);
+
+	let disposableTrain = vscode.commands.registerCommand('extension.insertTrain', () => {
+		const editor = vscode.window.activeTextEditor;
+		if (editor) {
+			getWord('Train-Case', editor);
+		}
+		else {
+			console.log("No active editor, didn't stick anything in");
+		}
+	});
+	context.subscriptions.push(disposableTrain);
 
 	let disposableCrazy = vscode.commands.registerCommand('extension.insertCrazy', () => {
 		const editor = vscode.window.activeTextEditor;
