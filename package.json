@@ -3,7 +3,7 @@
 	"displayName": "Random Name Generator",
 	"description": "Ever have trouble deciding what to name a variable? Use this. It generates random names for artifacts in VS Code.",
 	"publisher": "thmsrynr",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"icon": "icon.png",
 	"license": "SEE LICENSE IN LICENSE.txt",
 	"homepage": "https://github.com/thomasrayner/vscode-namegen",
@@ -22,7 +22,8 @@
 		"onCommand:extension.insertSnake",
 		"onCommand:extension.insertKebab",
 		"onCommand:extension.insertCrazy",
-		"onCommand:extension.insertPascal"
+		"onCommand:extension.insertPascal",
+		"onCommand:extension.insertTrain"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -44,7 +45,12 @@
 			},
 			{
 				"command": "extension.insertKebab",
-				"title": "Insert New Kebab-Case Identifying Name",
+				"title": "Insert New kebab-case Identifying Name",
+				"category": "Random Name"
+			},
+			{
+				"command": "extension.insertTrain",
+				"title": "Insert New Train-Case Identifying Name",
 				"category": "Random Name"
 			},
 			{
@@ -69,6 +75,7 @@
 					"enum": [
 						"All",
 						"StarWars",
+						"MiddleEarth",
 						"Test"
 					]
 				}

@@ -2,9 +2,13 @@
 
 All notable changes to the "vscode-namegen" extension will be documented in this file.
 
+## 0.1.1
+
+Corrected `kebab-case` to the right casing options, and added `Train-Case`. Added `MiddleEarth` wordlist.
+
 ## 0.1.0
 
-New feature: Get words from themed wordlists. Check the randomNameGen.DefaultTheme setting.
+New feature: Get words from themed wordlists. Check the `randomNameGen.DefaultTheme` setting.
 
 ## 0.0.3
 
