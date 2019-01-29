@@ -6,6 +6,10 @@ This is a simple VS Code extension that inserts random words with specific casin
 
 ![Random Name Generator in action](randomName.gif "Random Name Generator in action")
 
+### 0.2.0
+
+Added `randomNameGen.DefaultCasing` setting that works with the new `shift+alt+j` keybinding, which inserts a random name with your default casing preference.
+
 ### 0.1.1
 
 Corrected `kebab-case` to the right casing options, and added `Train-Case`. Added `MiddleEarth` wordlist.
