@@ -20,7 +20,7 @@
 	"activationEvents": [
 		"onCommand:extension.insertCamel",
 		"onCommand:extension.insertSnake",
-		"onCommand:extension.insertKebab",
+		"onCommand:extension.insertTrain",
 		"onCommand:extension.insertCrazy",
 		"onCommand:extension.insertPascal",
 		"onCommand:extension.insertTrain",
@@ -45,8 +45,8 @@
 				"category": "Random Name"
 			},
 			{
-				"command": "extension.insertKebab",
-				"title": "Insert New kebab-case Identifying Name",
+				"command": "extension.insertTrain",
+				"title": "Insert New Train-Case Identifying Name",
 				"category": "Random Name"
 			},
 			{
