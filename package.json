@@ -80,6 +80,7 @@
 					"description": "The wordlist to pull from.",
 					"enum": [
 						"All",
+						"StarTrek",
 						"StarWars",
 						"MiddleEarth",
 						"Test"
