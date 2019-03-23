@@ -3,7 +3,7 @@
 	"displayName": "Random Name Generator",
 	"description": "Ever have trouble deciding what to name a variable? Use this. It generates random names for artifacts in VS Code.",
 	"publisher": "thmsrynr",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"icon": "icon.png",
 	"license": "SEE LICENSE IN LICENSE.txt",
 	"homepage": "https://github.com/thomasrayner/vscode-namegen",
