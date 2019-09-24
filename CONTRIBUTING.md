@@ -8,7 +8,7 @@ In vscode-namegen, casing options require a couple changes. Each casing option h
 
 ## Adding a wordlist
 
-Adding a wordlist is probably the most accessible contribution for newcomers to this project, and newcomers to VS Code extensions in general. Add a wordlist with one entry per line, all lower case, no special characters into the src/wordlists folder. The file must end in `.txt`. Then in the enum in `package.json` which defines which wordlist the user prefers as default, add the exact filename without extension.
+Adding a wordlist is probably the most accessible contribution for newcomers to this project, and newcomers to VS Code extensions in general. Add a wordlist with one entry per line, all lower case, no special characters into the `src/wordlists` folder. The file must end in `.txt`. Then in the enum in `package.json` which defines which wordlist the user prefers as default, add the exact filename without extension.
 
 ## Building and testing
 
